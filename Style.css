@@ -1,0 +1,82 @@
+:root{
+  --glass: rgba(255,255,255,0.08);
+}
+body{
+  font-family:'Inter',sans-serif;
+  cursor:none;
+}
+
+/* ===== GLASS ===== */
+.glass{
+  background:var(--glass);
+  backdrop-filter:blur(22px);
+  border:1px solid rgba(255,255,255,0.15);
+}
+
+/* ===== FLOAT ===== */
+.float{
+  animation:float 6s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-18px)}
+}
+
+/* ===== PAGE FADE ===== */
+.fade-in{
+  animation:fade 1.2s ease forwards;
+}
+@keyframes fade{
+  from{opacity:0;transform:translateY(40px) scale(.96)}
+  to{opacity:1;transform:none}
+}
+
+/* ===== BUTTON SHINE ===== */
+.link-btn{
+  position:relative;
+  overflow:hidden;
+}
+.link-btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.25),transparent);
+  transform:translateX(-100%);
+}
+.link-btn:hover::before{
+  transform:translateX(100%);
+  transition:.6s;
+}
+
+/* ===== CURSOR ===== */
+.cursor{
+  width:22px;height:22px;
+  border-radius:50%;
+  position:fixed;
+  pointer-events:none;
+  background:radial-gradient(circle,#7c3aed,transparent);
+  mix-blend-mode:screen;
+  z-index:50;
+  transform:translate(-50%,-50%);
+}
+
+/* ===== CHAKRA RING ===== */
+.chakra{
+  position:absolute;
+  inset:-6px;
+  border-radius:50%;
+  border:2px dashed #ffffff;
+  animation:spin 12s linear infinite;
+}
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+@media (max-width:355px){
+  .head{
+    font-size: 22px;
+  }
+  .link-btn span{
+    font-size:12px;
+  }
+}
